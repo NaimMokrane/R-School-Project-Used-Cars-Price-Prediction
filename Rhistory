@@ -1,0 +1,507 @@
+library(tidyverse)
+used_cars <- read.csv("used_cars.csv")
+head(used_cars)
+str(used_cars)
+summary(used_cars)
+used_cars <- used_cars %>%
+mutate(price_clean = as.numeric(gsub("[\\$,]", "", price)))
+library(tidyverse)
+used_cars <- used_cars %>%
+mutate(price_clean = as.numeric(gsub("[\\$,]", "", price)))
+library(tidyverse)
+library(dplyr)
+used_cars <- used_cars %>%
+mutate(price_clean = as.numeric(gsub("[\\$,]", "", price)))
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(milage_clean = as.numeric(gsub("[^0-9]", "", milage)))
+used_cars <- used_cars %>%
+mutate(vehicle_age = 2024 - model_year)
+used_cars <- used_cars %>%
+select(-price, -milage)
+used_cars <- used_cars %>%
+mutate(across(c(fuel_type, transmission, brand, model), as.factor))
+used_cars <- used_cars %>%
+drop_na(price_clean, milage_clean, fuel_type, transmission)
+used_cars <- used_cars %>%
+drop.na(price_clean, milage_clean, fuel_type, transmission)
+library(tidyr)
+used_cars <- used_cars %>%
+drop_na(price_clean, milage_clean, fuel_type, transmission)
+if (!require("tidyverse")) install.packages("tidyverse")
+# Charger tidyverse (qui inclut tidyr)
+library(tidyverse)
+used_cars <- used_cars %>%
+drop_na(price_clean, milage_clean, fuel_type, transmission)
+used_cars <- used_cars[complete.cases(used_cars[, c("price_clean", "milage_clean", "fuel_type", "transmission")]), ]
+View(used_cars)
+used_cars <- used_cars %>%
+drop_na(price_clean, milage_clean, fuel_type, transmission)
+if (!require("tidyverse")) install.packages("tidyverse")
+library(tidyverse)
+if (!require("tidyr")) install.packages("tidyr")
+# Charger le package
+library(tidyr)
+used_cars <- used_cars %>%
+drop_na(price_clean, milage_clean, fuel_type, transmission)
+used_cars <- used_cars[complete.cases(used_cars[, c("price_clean", "milage_clean", "fuel_type", "transmission")]), ]
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(is.na(clean_title), "no", clean_title))
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(is.na(clean_title), "no", clean_title))
+used_cars$clean_title[is.na(used_cars$clean_title)] <- "no"
+View(used_cars)
+View(used_cars)
+used_cars$clean_title[is.na(used_cars$clean_title)] <- "No"
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(is.na(clean_title), "No", clean_title))
+any(is.na(used_cars$clean_title))
+sum(used_cars$clean_title == "No")
+sum(used_cars$clean_title == "no")
+View(used_cars)
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(is.na(clean_title), "No", clean_title))
+library(tidyverse)
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(is.na(clean_title), "No", clean_title))
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+used_cars <- read.csv("used_cars.csv")
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(price_clean = as.numeric(gsub("[\\$,]", "", price)))
+used_cars <- used_cars %>%
+mutate(milage_clean = as.numeric(gsub("[^0-9]", "", milage)))
+used_cars <- used_cars %>%
+mutate(vehicle_age = 2024 - model_year)
+used_cars <- used_cars %>%
+select(-price, -milage)
+used_cars <- used_cars %>%
+mutate(across(c(fuel_type, transmission, brand, model), as.factor))
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(is.na(clean_title), "No", clean_title))
+View(used_cars)
+any(is.na(used_cars$clean_title))
+View(used_cars)
+table(used_cars$clean_title == "")
+table(trimws(used_cars$clean_title) == "")
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(trimws(clean_title) == "" | is.na(clean_title), "No", clean_title))
+View(used_cars)
+table(trimws(used_cars$fuel_type) == "")
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(fuel_type = ifelse(trimws(fuel_type) == "" | is.na(fuel_type), "Electric", fuel_type))
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(across(c(fuel_type, transmission, brand, model), as.factor))
+View(used_cars)
+View(used_cars)
+used_cars <- read.csv("used_cars.csv")
+used_cars <- used_cars %>%
+mutate(price_clean = as.numeric(gsub("[\\$,]", "", price)))
+# Nettoyage de la colonne milage
+used_cars <- used_cars %>%
+mutate(milage_clean = as.numeric(gsub("[^0-9]", "", milage)))
+# Création d'une colonne pour l'âge du véhicule
+used_cars <- used_cars %>%
+mutate(vehicle_age = 2024 - model_year)
+used_cars <- used_cars %>%
+select(-price, -milage)
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(trimws(clean_title) == "" | is.na(clean_title), "No", clean_title))
+# Remplacement des espaces par des "Electric" pour fuel_type
+used_cars <- used_cars %>%
+mutate(fuel_type = ifelse(trimws(fuel_type) == "" | is.na(fuel_type), "Electric", fuel_type))
+View(used_cars)
+unique(used_cars$accident)
+used_cars <- used_cars %>%
+mutate(accident = trimws(accident))
+unique(used_cars$accident)
+nchar(used_cars$accident)
+View(used_cars)
+View(used_cars)
+used_cars <- used_cars %>%
+filter(trimws(accident) != "")
+unique(used_cars$accident)
+used_cars <- used_cars %>%
+mutate(accident_binary = ifelse(trimws(accident) == "At least 1 accident or damage reported", 1, 0))
+View(used_cars)
+used_cars <- used_cars %>%
+select(-price, -milage, -accident)
+used_cars <- used_cars %>%
+select(-price, -milage, -accident,)
+used_cars <- used_cars %>%
+select(-accident)
+used_cars <- used_cars %>%
+mutate(across(c(fuel_type, transmission, brand, model), as.factor))
+View(used_cars)
+View(used_cars)
+View(used_cars)
+used_cars <- used_cars %>%
+filter(!grepl("-", fuel_type))
+View(used_cars)
+used_cars <- used_cars %>%
+filter(!grepl("", fuel_type))
+View(used_cars)
+View(used_cars)
+used_cars <- read.csv("used_cars.csv")
+# Aperçu des données
+head(used_cars)
+str(used_cars)
+summary(used_cars)
+# ELT
+# Nettoyage de la colonne price
+used_cars <- used_cars %>%
+mutate(price_clean = as.numeric(gsub("[\\$,]", "", price)))
+# Nettoyage de la colonne milage
+used_cars <- used_cars %>%
+mutate(milage_clean = as.numeric(gsub("[^0-9]", "", milage)))
+# Création d'une colonne pour l'âge du véhicule
+used_cars <- used_cars %>%
+mutate(vehicle_age = 2024 - model_year)
+# Suppression des anciennes colonnes price et milage
+used_cars <- used_cars %>%
+select(-price, -milage)
+# Remplacement des espaces par des "no" pour la colonne clean_title
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(trimws(clean_title) == "" | is.na(clean_title), "No", clean_title))
+# Remplacement des espaces par des "Electric" pour fuel_type
+used_cars <- used_cars %>%
+mutate(fuel_type = ifelse(trimws(fuel_type) == "" | is.na(fuel_type), "Electric", fuel_type))
+# Suppression des vides dans accident car ils ne correspondent à rien cette fois ci
+used_cars <- used_cars %>%
+filter(trimws(accident) != "")
+# Encodage en 0 / 1 pour la variable accident
+used_cars <- used_cars %>%
+mutate(accident_binary = ifelse(trimws(accident) == "At least 1 accident or damage reported", 1, 0))
+# Suppression de l'ancienne colonne accident
+used_cars <- used_cars %>%
+select(-accident)
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(across(c(fuel_type, transmission, brand, model), as.factor))
+View(used_cars)
+used_cars <- used_cars %>%
+filter(!grepl(" ", fuel_type))
+View(used_cars)
+# Charger les librairies nécessaires
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+used_cars <- read.csv("used_cars.csv")
+# Aperçu des données
+head(used_cars)
+str(used_cars)
+summary(used_cars)
+# ELT
+# Nettoyage de la colonne price
+used_cars <- used_cars %>%
+mutate(price_clean = as.numeric(gsub("[\\$,]", "", price)))
+# Nettoyage de la colonne milage
+used_cars <- used_cars %>%
+mutate(milage_clean = as.numeric(gsub("[^0-9]", "", milage)))
+# Création d'une colonne pour l'âge du véhicule
+used_cars <- used_cars %>%
+mutate(vehicle_age = 2024 - model_year)
+# Suppression des anciennes colonnes price et milage
+used_cars <- used_cars %>%
+select(-price, -milage)
+# Remplacement des espaces par des "no" pour la colonne clean_title
+used_cars <- used_cars %>%
+mutate(clean_title = ifelse(trimws(clean_title) == "" | is.na(clean_title), "No", clean_title))
+# Remplacement des espaces par des "Electric" pour fuel_type
+used_cars <- used_cars %>%
+mutate(fuel_type = ifelse(trimws(fuel_type) == "" | is.na(fuel_type), "Electric", fuel_type))
+# Suppression des vides dans accident car ils ne correspondent à rien cette fois ci
+used_cars <- used_cars %>%
+filter(trimws(accident) != "")
+# Encodage en 0 / 1 pour la variable accident
+used_cars <- used_cars %>%
+mutate(accident_binary = ifelse(trimws(accident) == "At least 1 accident or damage reported", 1, 0))
+# Suppression de l'ancienne colonne accident
+used_cars <- used_cars %>%
+select(-accident)
+# Encodage des variables catégoriques en facteurs
+used_cars <- used_cars %>%
+mutate(across(c(fuel_type, transmission, brand, model), as.factor))
+used_cars <- used_cars %>%
+filter(trimws(fuel_type) != "")
+View(used_cars)
+table(trimws(used_cars$fuel_type) == "")
+unique(used_cars$fuel_type)
+View(used_cars)
+used_cars <- used_cars %>%
+filter(!grepl("â€“", fuel_type))
+View(used_cars)
+used_cars <- used_cars %>%
+filter(!grepl("â€“", fuel_type))
+unique(used_cars$fuel_type)
+# Vérifier s'il reste des lignes avec "â€“"
+table(grepl("â€“", used_cars$fuel_type))
+used_cars <- used_cars %>%
+filter(!grepl("- ", fuel_type))
+used_cars <- used_cars %>%
+filter(!grepl("-", fuel_type))
+used_cars <- used_cars %>%
+filter(!grepl(" -", fuel_type))
+used_cars <- used_cars %>%
+filter(!grepl("–", fuel_type))
+unique(used_cars$fuel_type)
+View(used_cars)
+fuel_dict <- c("Diesel" = 1 , "Gasoline" = 2, "E85 Flex Fuel" = 3, "Hybrid" = 4, "Plug-In Hybrid" = 5, "Electric" = 6, "not supported" = 7)
+used_cars <- used_cars %>%
+mutate(fuel_type_clean = as.numeric(factor(fuel_type, levels = names(fuel_dict))))
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(clean_title_encoded = ifelse(clean_title == "Yes", 1, 0))
+View(used_cars)
+missing_values <- colSums(is.na(used_cars[, c("fuel_type", "accident", "clean_title")]))
+used_cars$engine_encoded <- as.numeric(used_cars$engine)
+used_cars <- used_cars %>%
+select(-engine_encoded)
+used_cars$hp <- as.numeric(gsub("([0-9.]+)HP.*", "\\1", used_cars$engine))
+head(used_cars[, c("engine", "hp")])
+na_count_hp <- sum(is.na(used_cars$hp))
+# Afficher le résultat
+print(paste("Nombre de NA dans la colonne hp :", na_count_hp))
+used_cars <- na.omit(used_cars)
+table(used_cars$ext_col)
+library(ggplot2)
+ggplot(used_cars, aes(x = ext_col, y = price_clean)) +
+geom_boxplot() +
+labs(title = "Impact de la couleur sur le prix")
+View(used_cars)
+used_cars <- used_cars %>%
+mutate(color = as.numeric(factor(ext_col, levels = names(color_dict))))
+color_dict <- c("Black" = 1 , "White" = 2, "Gray" = 3, "Silver" = 4, "Blue" = 5, "Red" = 6, "Green" = 7, "Brown" = 8, "Gold" = 9 , "Beige"= 10 , "Orange" = 11 , "Yellow" = 12, "Purple" = 13, "Pink" = 14)
+used_cars <- used_cars %>%
+mutate(color = as.numeric(factor(ext_col, levels = names(color_dict))))
+View(used_cars)
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, clean_title_encoded, accident_binary, color),
+use = "complete.obs")
+library(tidyverse)
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, clean_title_encoded, accident_binary, color),
+use = "complete.obs")
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, clean_title_encoded, accident_binary, color),
+use = "complete.obs")
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, clean_title_encoded, accident_binary, color),
+use = "complete.obs")
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, clean_title_encoded, accident_binary, color),
+use = "complete.obs")
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, clean_title_encoded, accident_binary, color),
+use = "complete.obs")
+library(dplyr)
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, clean_title_encoded, accident_binary, color),
+use = "complete.obs")
+print(correlation_matrix)
+correlation_matrix <- cor(used_cars %>%
+select(price_clean, vehicle_age, hp, milage_clean, fuel_type_clean, accident_binary, color),
+use = "complete.obs")
+print(correlation_matrix)
+selected_features <- c("vehicle_age", "hp", "milage_clean", "fuel_type_clean",
+"accident_binary", "color")
+selected_features <- c("hp", "milage_clean", "fuel_type_clean",
+"accident_binary", "color")
+boxplot(used_cars$price_clean, main = "Boxplot des prix des voitures", ylab = "Prix (en $)")
+boxplot(used_cars$price_clean, main = "Boxplot prices of the cars", ylab = "Price (en $)")
+boxplot(used_cars$price_clean, main = "Boxplot prices of the cars", ylab = "Price ($)")
+q1 <- quantile(used_cars$price_clean, 0.25, na.rm = TRUE)
+q3 <- quantile(used_cars$price_clean, 0.75, na.rm = TRUE)
+iqr <- q3 - q1
+borne_inferieure <- q1 - 1.5 * iqr
+borne_superieure <- q3 + 1.5 * iqr
+used_cars <- used_cars %>%
+filter(price_clean >= borne_inferieure & price_clean <= borne_superieure)
+dim(used_cars)
+boxplot(used_cars$price_clean,
+main = "Boxplot des prix après suppression des valeurs aberrantes",
+ylab = "Prix (€)")
+boxplot(used_cars$price_clean, main = "Boxplot prices of the cars", ylab = "Price ($)")
+library(caret)
+install.packages("caret")
+library(caret)
+set.seed(123)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+library(caret)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+install.packages("recipes")
+library(caret)
+set.seed(123)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+install.packages("caret", dependencies = TRUE)
+install.packages("caret", dependencies = TRUE)
+set.seed(123)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+library(caret)
+set.seed(123)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+library(caret)
+install.packages("caret", dependencies = TRUE)
+set.seed(123)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+library(caret)
+version
+version
+library(caret)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+library(installr)
+install.packages("installr")
+library(installr)
+install.packages("caret", dependencies = TRUE)
+library(caret)
+install.packages("ggplot2")
+install.packages("lattice")
+install.packages("ggplot2")
+library(caret)
+set.seed(123)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.8, list = FALSE)
+train_data <- used_cars[train_index, ]
+test_data <- used_cars[-train_index, ]
+model <- lm(price_clean ~   hp + milage_clean + fuel_type_clean +
++ accident_binary + color,
+data = train_data)
+summary(linear_model)
+summary(model)
+model <- lm(price_clean ~   hp + milage_clean + fuel_type_clean +
+vehicle_age + accident_binary + color,
+data = train_data)
+summary(model)
+model <- lm(price_clean ~   hp + milage_clean + fuel_type_clean +
+vehicle_age + accident_binary + color, clean_title_encoded
+data = train_data)
+model <- lm(price_clean ~   hp + milage_clean + fuel_type_clean +
+vehicle_age + accident_binary + color, clean_title_encoded,
+data = train_data)
+summary(model)
+model <- lm(price_clean ~   hp + milage_clean + fuel_type_clean +
+vehicle_age + accident_binary + color,
+data = train_data)
+summary(model)
+model <- lm(price_clean ~   hp  + fuel_type_clean +
+vehicle_age + accident_binary + color,
+data = train_data)
+summary(model)
+model <- lm(price_clean ~   hp  + fuel_type_clean +
+milage_clean + accident_binary + color,
+data = train_data)
+summary(model)
+model <- lm(price_clean ~   hp   +
+milage_clean + accident_binary + color,
+data = train_data)
+summary(model)
+model <- lm(price_clean ~   hp   + vehicle_age
+milage_clean + accident_binary + color,
+model <- lm(price_clean ~   hp   + vehicle_age +
+milage_clean + accident_binary + color,
+data = train_data)
+summary(model)
+model <- lm(price_clean ~   hp   + vehicle_age +
+milage_clean + accident_binary +
+data = train_data)
+model <- lm(price_clean ~   hp   + vehicle_age +
+milage_clean + accident_binary,
+data = train_data)
+summary(model)
+library(caret)
+set.seed(123)
+train_index <- createDataPartition(used_cars$price_clean, p = 0.7, list = FALSE)
+train_data <- used_cars[train_index, ]
+test_data <- used_cars[-train_index, ]
+model <- lm(price_clean ~   hp   + vehicle_age + fuel_type_clean + color
+milage_clean + accident_binary,
+model <- lm(price_clean ~   hp   + vehicle_age + fuel_type_clean + color +
+milage_clean + accident_binary,
+data = train_data)
+summary(model)
+model2 <- lm(price_clean ~   hp   + vehicle_age + fuel_type_clean +
+milage_clean + accident_binary,
+data = train_data)
+summary(model2)
+mean_residuals <- mean(model2$residuals)
+mean_residuals
+qqnorm(rstandard(model2),
+main = "Q-Q Plot des résidus standardisés")
+qqline(rstandard(model2), col = "red", lty = 2)
+shapiro_test <- shapiro.test(model2$residuals)
+shapiro_test
+plot(model2$fitted.values, model2$residuals,
+xlab = "Valeurs ajustées", ylab = "Résidus",
+main = "Résidus vs valeurs ajustées")
+abline(h = 0, col = "red", lty = 2)
+if (!require("lmtest")) install.packages("lmtest")
+library(lmtest)
+bptest(model2)
+# Si la p-valeur
+if (!require("car")) install.packages("car")
+library(car)
+dw_test <- durbinWatsonTest(model2)
+dw_test
+residuals <- resid(model2)
+# Nuage de points des résidus vs l'indice des observations
+plot(residuals ~ seq_along(residuals),
+main = "Nuage de points des résidus vs indices",
+xlab = "Index",
+ylab = "Résidus",
+pch = 19, col = "black")
+abline(h = 0, col = "red", lty = 2)
+install.packages("nlme")
+library(nlme)
+gls_model <- gls(price_clean ~ hp + vehicle_age + fuel_type_clean +
+milage_clean + accident_binary,
+data = train_data,
+weights = varPower())
+gls_model <- gls(price_clean ~ hp + vehicle_age + fuel_type_clean + milage_clean + accident_binary,
+data = train_data,
+control = nlme::glsControl(maxIter = 1000))
+# Résumé du modèle
+summary(gls_model)
+shapiro_test2 <- shapiro.test(gls_model$residuals)
+shapiro_test2
+bptest(gls_model)
+library(lmtest)
+bptest(gls_model)
+View(gls_model)
+train_data$log_price <- log(train_data$price_clean)
+model_log <- lm(log_price ~ hp + vehicle_age + fuel_type_clean +
+milage_clean + accident_binary, data = train_data)
+summary(model_log)
+shapiro_test2 <- shapiro.test(model_log$residuals)
+shapiro_test
+bptest(model_log)
+price_prediction <- predict(model2, newdata = test_data)
+price_prediction <- predict(model2, newdata = test_data)
+# Affichage des premières prédictions comparées aux vraies valeurs
+predicted_vs_actual <- data.frame(Real = test_data$price_clean, Predicted = price_prediction)
+head(predicted_vs_actual)
+plot(test_data$price_clean, price_prediction,
+xlab = "Valeurs réelles", ylab = "Prédictions",
+main = "Prédictions vs Réelles")
+abline(a = 0, b = 1, col = "red")  # Ligne de référence pour une prédiction parfaite
+rmse <- sqrt(mean((predictions - test_data$price_clean)^2))
+rmse <- sqrt(mean((price_predictions - test_data$price_clean)^2))
+rmse <- sqrt(mean((price_prediction - test_data$price_clean)^2))
+print(paste("RMSE:", rmse))
+print(paste("R²:", r_squared))
+rmse <- sqrt(mean((price_prediction - test_data$price_clean)^2))
+print(paste("RMSE:", rmse))
+r_squared <- 1 - sum((price_prediction - test_data$price_clean)^2) / sum((mean(test_data$price_clean) - test_data$price_clean)^2)
+print(paste("R²:", r_squared))
+mae <- mean(abs(price_prediction - test_data$price_clean))
+print(paste("MAE:", mae))
+print(paste("RMSE:", rmse))
+print(paste("R²:", r_squared))
+print(paste("MAE:", mae))
